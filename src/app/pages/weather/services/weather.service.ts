@@ -13,6 +13,6 @@ export class WeatherService {
 
   getWeather(city: string): Observable<Weather> {
     return this.http.get<Weather>
-    (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d0ed5bdf9bdeaf55d8224853725405fd&units=metric`)
+    (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`)
   }
 }
