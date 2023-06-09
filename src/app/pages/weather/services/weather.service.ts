@@ -7,7 +7,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 
 @Injectable()
 export class WeatherService {
-  apiKey = WEATHER_API_KEY
+  private readonly apiKey = WEATHER_API_KEY
   constructor(
     private http: ApiService
   ) { }
