@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
