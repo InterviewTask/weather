@@ -1,2 +1,12 @@
-<p>weather works!</p>
-<button (click)="ali()">click</button>
+
+<app-search-drop-down
+[multiple]="false"
+[notFoundText]="'City Not Found'"
+[bindLabel]="'name'"
+[bindValue]="'coord'"
+[callbackFunction]="getCityListCallbackFunction"
+(selectedItem)="selectedCity($event)"
+>
+</app-search-drop-down>
+
+

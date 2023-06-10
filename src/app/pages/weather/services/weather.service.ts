@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WEATHER_API_KEY } from 'src/app/core/conf/app.config';
-import { Weather } from '../models/weather.model';
+import { IWeather, Weather } from '../models/weather.model';
 import { ApiService } from 'src/app/core/services/api.service';
 
 @Injectable()
@@ -12,9 +12,9 @@ export class WeatherService {
     private http: ApiService
   ) { }
 
-  getWeather(city: string): Observable<Weather> {
-    return this.http.get<Weather>
-      (`weather`, new HttpParams({
+  getCityDetail(city: string): Observable<IWeather> {
+    return this.http.get<IWeather>
+      (`find`, new HttpParams({
         fromObject: {
           q: city,
           appid: this.apiKey,
@@ -22,4 +22,18 @@ export class WeatherService {
         }
       }))
   }
+
+  getWeather(locLat:number,locLon:number){
+    return this.http.get<Weather>
+      (`onecall`, new HttpParams({
+        fromObject: {
+          lat: locLat,
+          lon: locLon,
+          appid: this.apiKey,
+          units: 'metric'
+        }
+      }))
+  }
+
+
 }
