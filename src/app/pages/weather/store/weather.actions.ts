@@ -1,15 +1,17 @@
 import { createAction, props } from '@ngrx/store';
+import { Weather } from '../models/weather.model';
 
-export const loadWeathers = createAction(
-  '[Weather] Load Weathers'
+export const searchWeather = createAction(
+  '[Weather] Search Weather',
+  props<{ cityName: string }>()
+);
+export const searchWeatherSuccess = createAction(
+  '[Weather] Search Weather Success',
+  props<{ payload: Weather }>()
 );
 
-export const loadWeathersSuccess = createAction(
-  '[Weather] Load Weathers Success',
-  props<{ data: any }>()
-);
-
-export const loadWeathersFailure = createAction(
-  '[Weather] Load Weathers Failure',
+export const searchWeatherFailure = createAction(
+  '[Weather] Search Weather Failure',
   props<{ error: any }>()
 );
+
