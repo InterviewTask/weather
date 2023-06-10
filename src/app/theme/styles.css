@@ -4,6 +4,7 @@
 --------------------------------*/
 @import "./_var.css";
 @import "./_font.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
 
 /* ---------------------------- */
 
