@@ -3,18 +3,28 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 
 @Injectable()
 export class HttpCacheRequestInterceptor implements HttpInterceptor {
-
-  constructor() {}
+  private cache: Map<string, HttpResponse<unknown>> = new Map()
+  constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log('CACHE');
+    const cachedResponse = this.cache.get(request.urlWithParams);
+    if (cachedResponse) {
+      return of(cachedResponse);
+    }
 
-    return next.handle(request);
+    return next.handle(request).pipe(
+      tap((event) => {
+        if (event instanceof HttpResponse) {
+          this.cache.set(request.urlWithParams, event);
+        }
+      })
+    );
   }
 }
