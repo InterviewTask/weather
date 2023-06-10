@@ -1,3 +1,7 @@
 {
-
+  "CLOUD":"Nuage: ",
+  "FEELS_LIKE" : "Ressenti: "  ,
+  "HUMIDITY":"Humidité: ",
+  "PRESSURE":"Pression: ",
+  "WIND_SPEED":"Vitesse du vent: "
 }

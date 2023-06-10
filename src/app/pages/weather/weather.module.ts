@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { WeatherEffects } from './store/weather.effects';
 import { WeatherService } from './services/weather.service';
 import { SharedModule } from 'src/app/shared';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -20,6 +21,7 @@ import { SharedModule } from 'src/app/shared';
   imports: [
     CommonModule,
     WeatherRoutingModule,
+    TranslateModule,
     SharedModule,
     StoreModule.forFeature(fromWeather.weatherFeatureKey, fromWeather.reducer),
     EffectsModule.forFeature([WeatherEffects])

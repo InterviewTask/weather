@@ -1,3 +1,7 @@
 {
-  "welcome":"bbbbbbbbb"
+  "CLOUD":"Wolk: ",
+  "FEELS_LIKE" : "Voelt als: "  ,
+  "HUMIDITY":"Vochtigheid: ",
+  "PRESSURE":"Druk: ",
+  "WIND_SPEED":"Windsnelheid: "
 }

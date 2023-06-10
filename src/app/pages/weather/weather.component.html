@@ -1,10 +1,10 @@
 <div class="weather-container">
   <div class="navbar">
-    <span>Select Language: </span>
     <ng-select
       (change)="changeLangulage($event)"
       [searchable]="false"
       [clearable]="false"
+      placeholder="Language"
     >
       <ng-option value="de-BE">German</ng-option>
       <ng-option value="fr-BE">French</ng-option>
@@ -27,7 +27,9 @@
   <div *ngIf="weather$ | async as data" class="content">
     <div class="curent">
       <div class="curent-item">
-        <span class="temp">{{data.current.temp}} <span class="degree">&deg;C</span></span>
+        <span class="temp"
+          >{{ data.current.temp }} <span class="degree">&deg;C</span></span
+        >
       </div>
       <div class="curent-item center-item">
         <div class="image">
@@ -48,31 +50,29 @@
       </div>
       <div class="curent-item align-end">
         <div class="item">
-          <span class="titr small">Cloud: </span>
-          <span class="value">{{data.current.clouds}} </span>
+          <span class="titr small">{{ "CLOUD" | translate }} </span>
+          <span class="value">{{ data.current.clouds }} </span>
         </div>
         <div class="item">
-          <span class="titr small">Feels Like : </span>
-          <span class="value">{{data.current.feels_like}} </span>
+          <span class="titr small">{{ "FEELS_LIKE" | translate }} </span>
+          <span class="value">{{ data.current.feels_like }} </span>
         </div>
         <div class="item">
-          <span class="titr small">Humidity: </span>
-          <span class="value">{{data.current.humidity}} </span>
+          <span class="titr small">{{ "HUMIDITY" | translate }} </span>
+          <span class="value">{{ data.current.humidity }} </span>
         </div>
         <div class="item">
-          <span class="titr small">Pressure: </span>
-          <span class="value">{{data.current.pressure}} </span>
+          <span class="titr small">{{ "PRESSURE" | translate }} </span>
+          <span class="value">{{ data.current.pressure }} </span>
         </div>
         <div class="item">
-          <span class="titr small">Wind Speed: </span>
-          <span class="value">{{data.current.wind_speed}} </span>
+          <span class="titr small">{{ "WIND_SPEED" | translate }} </span>
+          <span class="value">{{ data.current.wind_speed }} </span>
         </div>
       </div>
     </div>
     <div class="daily-weather">
-      <div
-      *ngFor="let day of data.daily"
-      class="item">
+      <div *ngFor="let day of data.daily" class="item">
         <div class="image">
           <img
             [src]="
@@ -82,13 +82,8 @@
             "
           />
         </div>
-        <div class="temp-max">
-          {{ day.temp.max }}&deg;
-        </div>
-        <div class="temp-min">
-          {{ day.temp.min }}&deg;
-        </div>
-
+        <div class="temp-max">{{ day.temp.max }}&deg;</div>
+        <div class="temp-min">{{ day.temp.min }}&deg;</div>
       </div>
     </div>
   </div>

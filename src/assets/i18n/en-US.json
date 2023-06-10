@@ -1,7 +1,7 @@
 {
-  "LOGIN":"Login",
-  "LOGIN_OR_REGISTER":"Login/Register",
-  "TIMEOUT_ERROR":"your connection to the server is disconnected",
-  "SERVER_RESPONCE_ERROR":" waiting time for server response has expired",
-  "welcome":"aaaaaaaaaa"
+  "CLOUD":"Cloud: ",
+  "FEELS_LIKE" : "Feels Like: "  ,
+  "HUMIDITY":"Humidity",
+  "PRESSURE":"Pressure",
+  "WIND_SPEED":"Wind Speed"
 }
