@@ -10,7 +10,8 @@ export class AppComponent {
   title = 'weather';
   constructor(
     private translate: TranslateService
-  ){}
+  ){
+  }
 
   switchLanguage(lang: string) {
     this.translate.use(lang);
