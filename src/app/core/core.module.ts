@@ -7,6 +7,7 @@ import { TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import * as Sentry from "@sentry/angular-ivy";
 import { Router } from '@angular/router';
+import { HttpCacheService } from './services/http-cache.service';
 /*============================
   TRANSLATE FACTORY
 ==============================*/
@@ -31,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   ],
   providers: [
     ApiService,
+    HttpCacheService,
     TranslateStore,
     interceptorProviders,
     {
