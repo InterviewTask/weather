@@ -1,0 +1,19 @@
+
+  <ng-select
+    (change)="emitChanges($event)"
+    [placeholder]="placeholder"
+    [items]="items$ | async"
+    [typeahead]="search$"
+    [bindLabel]="bindLabel"
+    [bindValue]="bindValue"
+    [addTag]="addTag"
+    [multiple]="multiple"
+    [minTermLength]="3"
+    typeToSearchText="Please enter 3 or more characters"
+    [hideSelected]="false"
+    [loading]="loading"
+    [notFoundText]="notFoundText"
+    [closeOnSelect]="false"
+    [clearSearchOnAdd]="true"
+  >
+  </ng-select>

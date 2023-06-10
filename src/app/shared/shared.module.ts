@@ -19,13 +19,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { SearchDropDownComponent } from './components/search-drop-down/search-drop-down.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 /* ================
 / COMPONENTS
 /=================*/
 
 const COMPONENTS = [
-  ConfirmComponent
+  ConfirmComponent,
+  SearchDropDownComponent
 ]
 
 /* ================
@@ -34,6 +38,8 @@ const COMPONENTS = [
 const MODULES = [
   CommonModule,
   HttpClientModule,
+  ReactiveFormsModule,
+  NgSelectModule,
   MatTableModule,
   DragDropModule,
   MatFormFieldModule,
@@ -55,7 +61,8 @@ const MODULES = [
 
 @NgModule({
   declarations: [
-    ...COMPONENTS
+    ...COMPONENTS,
+
   ],
   imports: [
     ...MODULES
