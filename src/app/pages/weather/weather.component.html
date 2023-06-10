@@ -1,12 +1,95 @@
+<div class="weather-container">
+  <div class="navbar">
+    <span>Select Language: </span>
+    <ng-select
+      (change)="changeLangulage($event)"
+      [searchable]="false"
+      [clearable]="false"
+    >
+      <ng-option value="de-BE">German</ng-option>
+      <ng-option value="fr-BE">French</ng-option>
+      <ng-option value="nl-BE">Duch</ng-option>
+      <ng-option value="en-US">English</ng-option>
+    </ng-select>
+  </div>
+  <div class="search">
+    <app-search-drop-down
+      [multiple]="false"
+      [notFoundText]="'City Not Found'"
+      [placeholder]="'Search Weather'"
+      [bindLabel]="'name'"
+      [bindValue]="'coord'"
+      [callbackFunction]="getCityListCallbackFunction"
+      (selectedItem)="selectedCity($event)"
+    >
+    </app-search-drop-down>
+  </div>
+  <div *ngIf="weather$ | async as data" class="content">
+    <div class="curent">
+      <div class="curent-item">
+        <span class="temp">{{data.current.temp}} <span class="degree">&deg;C</span></span>
+      </div>
+      <div class="curent-item center-item">
+        <div class="image">
+          <img
+            [src]="
+              'https://openweathermap.org/img/wn/' +
+              data.current.weather[0].icon +
+              '@2x.png'
+            "
+          />
+        </div>
+        <div class="title">
+          {{ data.timezone }}
+        </div>
+        <div class="small">
+          {{ data.current.weather[0].description }}
+        </div>
+      </div>
+      <div class="curent-item align-end">
+        <div class="item">
+          <span class="titr small">Cloud: </span>
+          <span class="value">{{data.current.clouds}} </span>
+        </div>
+        <div class="item">
+          <span class="titr small">Feels Like : </span>
+          <span class="value">{{data.current.feels_like}} </span>
+        </div>
+        <div class="item">
+          <span class="titr small">Humidity: </span>
+          <span class="value">{{data.current.humidity}} </span>
+        </div>
+        <div class="item">
+          <span class="titr small">Pressure: </span>
+          <span class="value">{{data.current.pressure}} </span>
+        </div>
+        <div class="item">
+          <span class="titr small">Wind Speed: </span>
+          <span class="value">{{data.current.wind_speed}} </span>
+        </div>
+      </div>
+    </div>
+    <div class="daily-weather">
+      <div
+      *ngFor="let day of data.daily"
+      class="item">
+        <div class="image">
+          <img
+            [src]="
+              'https://openweathermap.org/img/wn/' +
+              day.weather[0].icon +
+              '@2x.png'
+            "
+          />
+        </div>
+        <div class="temp-max">
+          {{ day.temp.max }}&deg;
+        </div>
+        <div class="temp-min">
+          {{ day.temp.min }}&deg;
+        </div>
 
-<app-search-drop-down
-[multiple]="false"
-[notFoundText]="'City Not Found'"
-[bindLabel]="'name'"
-[bindValue]="'coord'"
-[callbackFunction]="getCityListCallbackFunction"
-(selectedItem)="selectedCity($event)"
->
-</app-search-drop-down>
-
-
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,8 @@ import { WeatherState } from './store';
 import * as weatherActions from './store/weather.actions';
 import { Observable } from 'rxjs';
 import { SelectedWeatherSelector } from './store/weather.selector';
+import { Weather } from './models/weather.model';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -12,17 +14,15 @@ import { SelectedWeatherSelector } from './store/weather.selector';
 })
 export class WeatherComponent implements OnInit {
 
-  ali$!:Observable<any>;
+  weather$!:Observable<Weather>;
   constructor(
+    private translate: TranslateService,
     private store: Store<WeatherState>,
     private weatherService:WeatherService
   ) { }
 
   ngOnInit(): void {
-    this.store.pipe(select(SelectedWeatherSelector)).subscribe(res=>{
-      console.log(res);
-
-    })
+  this.weather$=this.store.pipe(select(SelectedWeatherSelector))
   }
 
   selectedCity(event:{lat:number,lon:number}){
@@ -35,6 +35,10 @@ export class WeatherComponent implements OnInit {
 
   getCityListCallbackFunction = (term: string): Observable<any> => {
     return this.weatherService.getCityDetail(term)
+  }
+
+  changeLangulage(lang:string){
+    this.translate.use(lang);
   }
 
 

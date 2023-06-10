@@ -21,7 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { SearchDropDownComponent } from './components/search-drop-down/search-drop-down.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 /* ================
 / COMPONENTS
@@ -39,6 +39,7 @@ const MODULES = [
   CommonModule,
   HttpClientModule,
   ReactiveFormsModule,
+  FormsModule,
   NgSelectModule,
   MatTableModule,
   DragDropModule,
