@@ -12,8 +12,8 @@ export class WeatherService {
     private http: ApiService
   ) { }
 
-  getCityDetail(city: string): Observable<IWeather> {
-    return this.http.get<IWeather>
+  getCityDetail(city: string): Observable<any> {
+    return this.http.get<any>
       (`find`, new HttpParams({
         fromObject: {
           q: city,
