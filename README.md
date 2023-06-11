@@ -1,27 +1,32 @@
-# Weather
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+# |Inpress Weather ⛅⛈🌤🌥🌦🌧🌨🌩
 
-## Development server
+![Logo](https://s8.uupload.ir/files/capture_ocq7.jpg)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    
+## Description 
 
-## Code scaffolding
+Weather Application Using Angular 14 To Get Data From https://openweathermap.org/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  
+## Features
 
-## Build
+- Weather API Integration (https://openweathermap.org/)
+- RxJS Observables and operators to handle asynchronous data fetching.
+- Caching mechanisms to reduce API requests
+- Support offline functionality by caching previously fetched weather data.
+- Search Functionality (Use RXJS to fetching data when user type in input)
+- Handle errors that may occur during API requests.
+- Integrate a logging service (Sentry) to log errors and exceptions.
+- NgRx to manage the application state.
+- Unit tests using Angular's testing frameworks
+- Optimize the application's performance by lazy-loading modules.
+- Implement internationalization (i18n) to provide multi-language support in the application.
+- Responsive Design
+- Live previews
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+  
+## Demo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+https://weather-gray-ten.vercel.app/
