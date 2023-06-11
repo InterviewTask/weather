@@ -26,7 +26,7 @@
   </div>
   <div *ngIf="weather$ | async as data" class="content">
     <div class="curent">
-      <div class="curent-item">
+      <div class="curent-item d-0">
         <span class="temp"
           >{{ data.current.temp }} <span class="degree">&deg;C</span></span
         >
@@ -48,7 +48,7 @@
           {{ data.current.weather[0].description }}
         </div>
       </div>
-      <div class="curent-item align-end">
+      <div class="curent-item align-end d-0">
         <div class="item">
           <span class="titr small">{{ "CLOUD" | translate }} </span>
           <span class="value">{{ data.current.clouds }} </span>
